@@ -112,13 +112,8 @@ class SendMail extends Mail{
 }
 
 $mail = MailFactory::getInstance()->create();
-/*
- * (1)给公司邮件发，收不到，可能是网络安全限制。
- * (2)给163邮箱发，sjs_123_235主机名格式不符合规范, 可以将主机名改为sjs_123_235.com域名形式
- * (3)对于带附件的邮件，频繁发送会导致被屏蔽一段时间。
- */
-$s = $mail->init('985004673@qq.com', '早上好', '你好',
-    'wangfeng211731@hello.com')->send();
+$s = $mail->init('wangfeng211731@hello.com', '早上好', '你好',
+    '985004673@qq.com')->send();
 $s = $mail->init('985004673@qq.com', '有附件的邮件', '早上好',
     'wangfeng211731@hello.com')->sendAttachment('/home/wangfeng/test.png');
 
